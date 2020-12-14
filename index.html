@@ -1,0 +1,54 @@
+<html lang='en'>
+
+<head>
+  <title>A Math Game</title>
+  <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+  <!-- Custom styling -->
+  <link rel='stylesheet' href='css/styles.css'>
+  <!-- Favicon -->
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <!-- Custom font -->
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Just+Another+Hand&display=swap'>
+
+  <script src="vendor/opencv.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs/dist/tf.min.js"></script>
+
+  <script src="drawing.js"></script>
+  <script src="processing.js"></script>
+  <script src="math.js"></script>
+
+</head>
+
+<body>
+
+  <div class='container'>
+
+    <h1 id='title'>Math Garden</h1>
+
+    <h2 id='question'><span id='n1'>3</span> + <span id='n2'>2</span> = </h2>
+
+    <canvas id="my-canvas" width="150" height="150"></canvas>
+
+  </div>
+
+  <div class='container'>
+    <button id='checkAnswer' class='btn' value='Check'>Check Answer</button>
+  </div>
+
+  <script>
+
+    loadModel();
+    prepareCanvas();
+    nextQuestion();
+
+    document.getElementById('checkAnswer').addEventListener('click', () => {
+      checkAnswer();
+      clearCanvas();
+      nextQuestion();
+    });
+
+  </script>
+
+</body>
+
+</html>
